@@ -1,5 +1,12 @@
-import { DateTimeFormat, DateTimePicker, DateUtil, SuffixMode } from 'date-time-picker'
-import { DateTime, DateTimePickerConfig, LoopMode } from 'date-time-picker/src/main/ets/components/DateTimePicker'
+import {
+  DateTime,
+  DateTimeFormat,
+  DateTimePicker,
+  DateTimePickerConfig,
+  DateUtil,
+  LoopMode,
+  SuffixMode
+} from 'date-time-picker'
 
 @Entry
 @Component
