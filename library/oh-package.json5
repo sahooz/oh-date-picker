@@ -1,0 +1,11 @@
+{
+  "name": "@xinyansoft/oh-date-picker",
+  "version": "0.0.1",
+  "description": "openharmony & harmonyOS平台日期选择器增强版/Enhanced DatePicker for openharmony & harmonyOS",
+  "main": "Index.ets",
+  "author": "Sahooz",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/sahooz/oh-date-picker",
+  "homepage": "https://blog.xinyanruanjian.com",
+  "dependencies": {}
+}
