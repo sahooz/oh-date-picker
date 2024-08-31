@@ -2,7 +2,7 @@
 
 oh-date-picker: openharmony & harmonyOS平台日期选择器增强版。  
 
-代码仓库：[oh-crop](https://github.com/sahooz/oh-date-picker)
+代码仓库：[oh-date-picker](https://github.com/sahooz/oh-date-picker)
 
 ## 📚 下载安装
 
