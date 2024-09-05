@@ -492,10 +492,10 @@ export class DateTime {
       return this.day > that.day
     }
     if(this.hour != that.hour) {
-      return this.day > that.day
+      return this.hour > that.hour
     }
     if(this.minute != that.hour) {
-      return this.day > that.day
+      return this.minute > that.minute
     }
     return this.second > that.second
   }

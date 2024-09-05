@@ -1,6 +1,6 @@
 {
   "name": "@xinyansoft/oh-date-picker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "openharmony & harmonyOS平台日期选择器增强版/Enhanced DatePicker for openharmony & harmonyOS",
   "main": "Index.ets",
   "author": "Sahooz",

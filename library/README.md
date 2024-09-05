@@ -78,9 +78,9 @@ DateTimePicker({
       },
       color: Color.Black
     },
-    suffixTextStyle: {
+    disappearTextStyle: {
       font: {
-        size: 15
+        size: 13
       },
       color: Color.Black
     },
