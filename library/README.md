@@ -1,10 +1,10 @@
-## 📚 简介 
+## 💡 简介 
 
-oh-date-picker: openharmony & harmonyOS平台日期选择器增强版。  
+oh-date-picker: Openharmony & HarmonyOS平台日期选择器增强版，支持选择年月、年月日、年月日时分等多种格式。  
 
 代码仓库：[oh-date-picker](https://github.com/sahooz/oh-date-picker)
 
-## 📚 下载安装
+## ⚙️ 下载安装
 
 ```shell
 ohpm i @xinyansoft/oh-date-picker
@@ -12,7 +12,7 @@ ohpm i @xinyansoft/oh-date-picker
 
 OpenHarmony ohpm 环境配置等更多内容，请参考: [下载安装三方库](https://ohpm.openharmony.cn/#/cn/help/downloadandinstall)  
 
-## 📚 效果图参考
+## 🌅 效果图参考
 
 ### 年月
 
@@ -42,7 +42,7 @@ OpenHarmony ohpm 环境配置等更多内容，请参考: [下载安装三方库
 
 ![](imgs/ms.png)
 
-## 接口说明
+## 🎗️接口说明
 
 ```typescript
 DateTimePicker({
@@ -96,14 +96,14 @@ DateTimePicker({
     },
   
     // 循环模式：Auto，Enable，Disable
-    // Auto: 数据项大于3项时可以滚动
-    // Enable: 无论数据项多少都可以滚动
-    // Disable: 无论数据项多少都不可以滚动
+    // Auto: 数据项大于3项时可以循环滚动
+    // Enable: 无论数据项多少都可以循环滚动
+    // Disable: 无论数据项多少都不可以循环滚动
     loopMode: LoopMode.Auto
 })
 ```
 
-## 📚 使用示例   
+## ✍️ 使用示例   
 
 ```
 import { DateTimeFormat, DateTimePicker, DateUtil, SuffixMode } from 'date-time-picker'
@@ -275,4 +275,21 @@ struct Index {
     .height('100%')
   }
 }
-```
+```  
+
+## 📱 更多
+
+我开发的其他鸿蒙库：
+1. [oh-crop](https://ohpm.openharmony.cn/#/cn/detail/@xinyansoft%2Foh-crop): OpenHarmony/HarmonyOS上的简单的图片剪裁库，可用于头像剪裁等常见场景。
+2. [oh-topic-editor](https://ohpm.openharmony.cn/#/cn/detail/@xinyansoft%2Foh-topic-editor): OpenHarmony & HarmonyOS平台上基于RichEditor实现的支持添加话题、@用户的文本编辑组件。
+
+我的博客：https://blog.xinyanruanjian.com/
+
+我的公众号：程序员吹白  
+
+![](imgs/plat.jpg)  
+鸿蒙开发交流QQ群：546723002
+
+## 🌐 开源协议
+
+Apache License Version 2.0

@@ -523,6 +523,11 @@ export class DateTime {
   isTheSameSecond(that: DateTime) : boolean {
     return this.isTheSameMinute(that) && this.second == that.second
   }
+
+  millis(): number {
+    let date = new Date(this.year, this.month - 1, this.day, this.hour, this.minute, this.second)
+    return date.getTime()
+  }
 }
 
 export interface ISuffixes {
