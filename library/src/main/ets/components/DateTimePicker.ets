@@ -464,7 +464,7 @@ export class DateTime {
         fmtStr = 'yyyy-MM-dd HH:mm:ss'
         break
       case DateTimeFormat.Hm:
-        fmtStr = 'HH:ss'
+        fmtStr = 'HH:mm'
         break
       case DateTimeFormat.Hms:
         fmtStr = 'HH:mm:ss'

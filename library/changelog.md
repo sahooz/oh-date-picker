@@ -1,5 +1,9 @@
 # 版本日志
 
+## 0.0.5  
+
+- 修复DateTime格式化“时分”的格式错误bug：[#3](https://github.com/sahooz/oh-date-picker/issues/3)
+
 ## 0.0.4
 
 - DateTime增加转换成毫秒的方法
