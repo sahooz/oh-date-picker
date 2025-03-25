@@ -233,6 +233,13 @@ export struct DateTimePicker {
           .padding(0)
           .onChange((value) => {
             this.selectedDateTime = this.selectedDateTime.copy(value as string, index)
+            let startDateTime = new DateTime(this.config.format, this.config.start)
+            let endDateTime = new DateTime(this.config.format, this.config.end)
+            if(startDateTime.isAfter(this.selectedDateTime)) {
+              this.selectedDateTime = startDateTime
+            } else if(this.selectedDateTime.isAfter(endDateTime)) {
+              this.selectedDateTime = endDateTime
+            }
             this.config = copyConfigWithSelected(this.config, this.selectedDateTime.format())
             this.onSelectedCallback(this.selectedDateTime)
           }).canLoop(this.canLoop(item))

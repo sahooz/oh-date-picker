@@ -11,16 +11,16 @@ import {
 @Entry
 @Component
 struct Index {
-  @State @Watch('conConfigChanged') config : DateTimePickerConfig = {
-    format: DateTimeFormat.YmdHm,
-    start: '1900-01-01 00:00',
-    end: '2099-12-31 23:59',
-    selected: DateUtil.getTodayStr('yyyy-MM-dd HH:mm')
+  @State @Watch('onConfigChanged') config : DateTimePickerConfig = {
+    format: DateTimeFormat.Ym,
+    start: '2020-12', // 开始时间
+    end: '2021-05', // 结束时间
+    selected: '2021-05'
   }
   @State suffixMode: SuffixMode = SuffixMode.Together
   @State selected: DateTime = new DateTime(this.config.format, this.config.selected)
 
-  conConfigChanged() {
+  onConfigChanged() {
     this.selected = new DateTime(this.config.format, this.config.selected)
   }
 
