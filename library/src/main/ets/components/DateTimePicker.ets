@@ -1,5 +1,4 @@
 import { DateUtil } from '../utils/DateUtil'
-import { hilog } from '@kit.PerformanceAnalysisKit'
 
 @Component
 export struct DateTimePicker {
