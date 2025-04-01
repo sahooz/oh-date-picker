@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.cer",
+          "storePassword": "000000192A76C1EEE221CF4C045EB56C00A73632947947BF88BCA709AC7015C9B00DD34118663AAC8C",
+          "keyAlias": "debugKey",
+          "keyPassword": "00000019DC28B43CC40F6EA80B809D90DA7D9ED60FCAE15C871FCA8B5021D4D0E2C2A6CC3696725784",
+          "profile": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",

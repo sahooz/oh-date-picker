@@ -1,5 +1,9 @@
 # 版本日志
 
+## 0.0.7
+
+- 修复实际值与显示不同步问题
+
 ## 0.0.6
 
 - 修复边界值处理bug：[#4](https://github.com/sahooz/oh-date-picker/issues/4)

@@ -19,18 +19,15 @@ export struct DateTimePicker {
   onSelectedCallback: (dateTime: DateTime) => void = () => {}
 
   @State private dataSet: string[][] = []
-  private selectedValuesInTogetherMode : string[] = []
   private selectedDateTime: DateTime = new DateTime(DateTimeFormat.YmdHm, '1970-01-01 00:00')
 
+
   aboutToAppear(): void {
-    hilog.debug(0, 'DateTimePicker', 'aboutToAppear...')
     this.calculateDataSet()
   }
 
   calculateDataSet() {
-    hilog.debug(0, 'DateTimePicker', '状态变化，重新计算属性')
     let dataSet : string[][] = []
-    this.selectedValuesInTogetherMode = []
     let startDate = new DateTime(this.config.format, this.config.start)
     let endDate = new DateTime(this.config.format, this.config.end)
     let selectedDate = new DateTime(this.config.format, this.config.selected)
@@ -38,7 +35,7 @@ export struct DateTimePicker {
       this.selectedDateTime = selectedDate
     }
     if(startDate.isAfter(endDate)) {
-      throw new Error('end must be a date after start')
+      throw new Error('start must not be a date after end')
     }
     if(this.containsYear()) {
       let years: string[] = []
@@ -50,7 +47,6 @@ export struct DateTimePicker {
         years.push(year)
       }
       dataSet.push(years)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.year, 4) + this.suffixes.year)
     }
 
     if(this.containsMonth()) {
@@ -71,7 +67,6 @@ export struct DateTimePicker {
         months.push(month)
       }
       dataSet.push(months)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.month, 2) + this.suffixes.month)
     }
 
     if(this.containsDay()) {
@@ -92,7 +87,6 @@ export struct DateTimePicker {
         days.push(day)
       }
       dataSet.push(days)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.day, 2) + this.suffixes.day)
     }
 
     if(this.containsHour()) {
@@ -119,7 +113,6 @@ export struct DateTimePicker {
         hours.push(hour)
       }
       dataSet.push(hours)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.hour, 2) + this.suffixes.hour)
     }
 
     if(this.containsMinute()) {
@@ -146,7 +139,6 @@ export struct DateTimePicker {
         minutes.push(minute)
       }
       dataSet.push(minutes)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.minute, 2) + this.suffixes.minute)
     }
 
     if(this.containsSecond()) {
@@ -173,7 +165,6 @@ export struct DateTimePicker {
         seconds.push(second)
       }
       dataSet.push(seconds)
-      this.selectedValuesInTogetherMode.push(DateUtil.padNumber(selectedDate.second, 2) + this.suffixes.second)
     }
 
     this.dataSet = dataSet
@@ -233,14 +224,18 @@ export struct DateTimePicker {
           .padding(0)
           .onChange((value) => {
             this.selectedDateTime = this.selectedDateTime.copy(value as string, index)
-            let startDateTime = new DateTime(this.config.format, this.config.start)
-            let endDateTime = new DateTime(this.config.format, this.config.end)
-            if(startDateTime.isAfter(this.selectedDateTime)) {
-              this.selectedDateTime = startDateTime
-            } else if(this.selectedDateTime.isAfter(endDateTime)) {
-              this.selectedDateTime = endDateTime
+            this.config.selected = this.selectedDateTime.format();
+            this.calculateDataSet();
+
+            for (let i = index + 1; i < this.dataSet.length; i++) {
+              let text = this.getValueForIndex(i)
+              let range = this.dataSet[i];
+              if(range.every(val => val != text)) {
+                this.selectedDateTime = this.selectedDateTime.copy(range[0], i)
+                this.config.selected = this.selectedDateTime.format();
+              }
             }
-            this.config = copyConfigWithSelected(this.config, this.selectedDateTime.format())
+
             this.onSelectedCallback(this.selectedDateTime)
           }).canLoop(this.canLoop(item))
         if(this.suffixMode == SuffixMode.Separated && this.getSuffixForIndex(index) != '') {
@@ -421,37 +416,6 @@ export class DateTime {
     newDate.hour = values[3]
     newDate.minute = values[4]
     newDate.second = values[5]
-    return newDate
-  }
-
-  copyWithValues(values: string[]): DateTime {
-    let newValues = [this.year, this.month, this.day, this.hour, this.minute, this.second]
-    for (let index = 0; index < values.length; index++) {
-      switch (this.fmt) {
-        case DateTimeFormat.Ym:
-        case DateTimeFormat.Ymd:
-        case DateTimeFormat.YmdHm:
-        case DateTimeFormat.YmdHms:
-          newValues[index] = Number.parseInt(values[index])
-          break
-        case DateTimeFormat.Hm:
-        case DateTimeFormat.Hms:
-          newValues[index + 3] = Number.parseInt(values[index])
-          break
-        case DateTimeFormat.Ms:
-          newValues[index + 4] = Number.parseInt(values[index])
-          break
-      }
-    }
-
-    let newDate: DateTime = new DateTime(DateTimeFormat.Ym, '0000-00')
-    newDate.fmt = this.fmt
-    newDate.year = newValues[0]
-    newDate.month = newValues[1]
-    newDate.day = newValues[2]
-    newDate.hour = newValues[3]
-    newDate.minute = newValues[4]
-    newDate.second = newValues[5]
     return newDate
   }
 
