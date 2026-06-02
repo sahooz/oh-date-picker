@@ -22,6 +22,8 @@ OpenHarmony ohpm 环境配置等更多内容，请参考: [下载安装三方库
 
 ![](imgs/ymd.png)
 
+### 年月日时
+
 ### 年月日时分
 
 ![](imgs/ymdhm.png)
@@ -202,6 +204,23 @@ struct Index {
               start : '1900-08-29 12:00',
               end : '2100-08-29 12:00',
               selected : '2024-08-29 12:00'
+            }
+          })
+      }.width('100%')
+      .height(52)
+      .justifyContent(FlexAlign.SpaceAround)
+
+      Row() {
+        Button('年月日时', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.YmdH,
+              start : '1900-08-29 12',
+              end : '2100-08-29 12',
+              selected : '2024-08-29 12'
             }
           })
       }.width('100%')

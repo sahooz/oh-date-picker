@@ -27,6 +27,14 @@ export default function localUnitTest() {
       expect(dateTime.format()).assertEqual('2024-08-29 12:34:56')
     })
 
+    it('formats date time with hour', 0, () => {
+      let dateTime = new DateTime(DateTimeFormat.YmdH, '2024-08-29 12')
+
+      expect(dateTime.hour).assertEqual(12)
+      expect(dateTime.format()).assertEqual('2024-08-29 12')
+      expect(dateTime.valueForIndex(3)).assertEqual('12')
+    })
+
     it('formats time-only values', 0, () => {
       expect(new DateTime(DateTimeFormat.Hm, '06:07').format()).assertEqual('06:07')
       expect(new DateTime(DateTimeFormat.Hms, '06:07:08').format()).assertEqual('06:07:08')

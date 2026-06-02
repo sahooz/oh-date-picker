@@ -155,6 +155,7 @@ export struct DateTimePicker {
   containsYear() : boolean {
     return this.config.format == DateTimeFormat.Ym
       || this.config.format == DateTimeFormat.Ymd
+      || this.config.format == DateTimeFormat.YmdH
       || this.config.format == DateTimeFormat.YmdHm
       || this.config.format == DateTimeFormat.YmdHms
   }
@@ -162,18 +163,21 @@ export struct DateTimePicker {
   containsMonth() : boolean {
     return this.config.format == DateTimeFormat.Ym
       || this.config.format == DateTimeFormat.Ymd
+      || this.config.format == DateTimeFormat.YmdH
       || this.config.format == DateTimeFormat.YmdHm
       || this.config.format == DateTimeFormat.YmdHms
   }
 
   containsDay() : boolean {
     return this.config.format == DateTimeFormat.Ymd
+      || this.config.format == DateTimeFormat.YmdH
       || this.config.format == DateTimeFormat.YmdHm
       || this.config.format == DateTimeFormat.YmdHms
   }
 
   containsHour() : boolean {
-    return this.config.format == DateTimeFormat.YmdHm
+    return this.config.format == DateTimeFormat.YmdH
+      || this.config.format == DateTimeFormat.YmdHm
       || this.config.format == DateTimeFormat.YmdHms
       || this.config.format == DateTimeFormat.Hm
       || this.config.format == DateTimeFormat.Hms
@@ -265,6 +269,7 @@ export struct DateTimePicker {
     switch (this.config.format) {
       case DateTimeFormat.Ym:
       case DateTimeFormat.Ymd:
+      case DateTimeFormat.YmdH:
       case DateTimeFormat.YmdHm:
       case DateTimeFormat.YmdHms:
         return values[index]
@@ -278,7 +283,7 @@ export struct DateTimePicker {
 }
 
 export enum DateTimeFormat {
-  Ym, Ymd, YmdHm, YmdHms, Hm, Hms, Ms
+  Ym, Ymd, YmdHm, YmdHms, Hm, Hms, Ms, YmdH
 }
 
 export enum DateTimeColumn {
@@ -309,6 +314,16 @@ export class DateTime {
         this.year = Number.parseInt(splits[0])
         this.month = Number.parseInt(splits[1])
         this.day = Number.parseInt(splits[2])
+        break
+      }
+
+      case DateTimeFormat.YmdH: {
+        let splits = dateTimeStr.split(' ')
+        let ymd = splits[0].split('-')
+        this.year = Number.parseInt(ymd[0])
+        this.month = Number.parseInt(ymd[1])
+        this.day = Number.parseInt(ymd[2])
+        this.hour = Number.parseInt(splits[1])
         break
       }
 
@@ -366,6 +381,7 @@ export class DateTime {
     switch (this.fmt) {
       case DateTimeFormat.Ym:
       case DateTimeFormat.Ymd:
+      case DateTimeFormat.YmdH:
       case DateTimeFormat.YmdHm:
       case DateTimeFormat.YmdHms:
         return DateUtil.padNumber(values[index], index == 0? 4 : 2)
@@ -382,6 +398,7 @@ export class DateTime {
     switch (this.fmt) {
       case DateTimeFormat.Ym:
       case DateTimeFormat.Ymd:
+      case DateTimeFormat.YmdH:
       case DateTimeFormat.YmdHm:
       case DateTimeFormat.YmdHms:
         values[index] = Number.parseInt(value)
@@ -413,6 +430,9 @@ export class DateTime {
         break
       case DateTimeFormat.Ymd:
         fmtStr = 'yyyy-MM-dd'
+        break
+      case DateTimeFormat.YmdH:
+        fmtStr = 'yyyy-MM-dd HH'
         break
       case DateTimeFormat.YmdHm:
         fmtStr = 'yyyy-MM-dd HH:mm'

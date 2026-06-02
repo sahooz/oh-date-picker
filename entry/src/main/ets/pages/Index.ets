@@ -87,7 +87,7 @@ struct Index {
         Button('年月', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.Ym,
@@ -100,7 +100,7 @@ struct Index {
         Button('年月日', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.Ymd,
@@ -110,10 +110,28 @@ struct Index {
             }
           })
 
+        Button('年月日时', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width('31%')
+          .onClick(() => {
+            this.config = {
+              format : DateTimeFormat.YmdH,
+              start : '1900-08-29 12',
+              end : '2100-08-29 12',
+              selected : '2024-08-29 12'
+            }
+          })
+      }.width('100%')
+      .height(52)
+      .padding({ left: 12, right: 12 })
+      .justifyContent(FlexAlign.SpaceBetween)
+
+      Row() {
         Button('年月日时分', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.YmdHm,
@@ -122,15 +140,10 @@ struct Index {
               selected : '2024-08-29 12:00'
             }
           })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
-
-      Row() {
         Button('年月日时分秒', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.YmdHms,
@@ -142,7 +155,7 @@ struct Index {
         Button('时分秒', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.Hms,
@@ -151,10 +164,16 @@ struct Index {
               selected : '06:00:00'
             }
           })
+      }.width('100%')
+      .height(52)
+      .padding({ left: 12, right: 12 })
+      .justifyContent(FlexAlign.SpaceBetween)
+
+      Row() {
         Button('时分', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.Hm,
@@ -163,15 +182,11 @@ struct Index {
               selected : '06:00'
             }
           })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
 
-      Row() {
         Button('分秒', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.config = {
               format : DateTimeFormat.Ms,
@@ -183,26 +198,28 @@ struct Index {
         Button('后缀独立', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.suffixMode = SuffixMode.Separated
           })
+      }.width('100%')
+      .height(52)
+      .padding({ left: 12, right: 12 })
+      .justifyContent(FlexAlign.SpaceBetween)
+
+      Row() {
         Button('后缀非独立', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.suffixMode = SuffixMode.Together
           })
-      }.width('100%')
-      .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
 
-      Row() {
         Button('过滤周末', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.filterWeekends = true
             this.refreshConfig()
@@ -210,14 +227,15 @@ struct Index {
         Button('显示周末', { type: ButtonType.Normal, stateEffect: true })
           .borderRadius(8)
           .backgroundColor(0x317aff)
-          .width(90)
+          .width('31%')
           .onClick(() => {
             this.filterWeekends = false
             this.refreshConfig()
           })
       }.width('100%')
       .height(52)
-      .justifyContent(FlexAlign.SpaceAround)
+      .padding({ left: 12, right: 12 })
+      .justifyContent(FlexAlign.SpaceBetween)
 
     }.width('100%')
     .height('100%')
