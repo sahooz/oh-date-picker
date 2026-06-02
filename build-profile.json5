@@ -5,13 +5,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.cer",
-          "storePassword": "000000192A76C1EEE221CF4C045EB56C00A73632947947BF88BCA709AC7015C9B00DD34118663AAC8C",
+          "certpath": "/Users/sahooz/.ohos/config/default_oh_date_picker_OK57fpR2nH33ebr_1wicAQs06t4itheLCPeF1l6jzd4=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "00000019DC28B43CC40F6EA80B809D90DA7D9ED60FCAE15C871FCA8B5021D4D0E2C2A6CC3696725784",
-          "profile": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.p7b",
+          "keyPassword": "0000001B40001D858D92222D0CB4AE3A2418604769FEE1C104BFABC14C7931F0030F69696B445D6455FD96",
+          "profile": "/Users/sahooz/.ohos/config/default_oh_date_picker_OK57fpR2nH33ebr_1wicAQs06t4itheLCPeF1l6jzd4=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "/Users/sahooz/.ohos/config/default_oh_date_picker_XPhocvVZe2owsXOQYy8806yl8yn4BkS__bPc8LuJwTE=.p12"
+          "storeFile": "/Users/sahooz/.ohos/config/default_oh_date_picker_OK57fpR2nH33ebr_1wicAQs06t4itheLCPeF1l6jzd4=.p12",
+          "storePassword": "0000001BA3D6AA6FE6362FF7905C8FB00B1F816A5C46172FF6BB5A595F27F65E9EF4E568C33BBCC25C432D"
         }
       }
     ],
