@@ -16,33 +16,33 @@ OpenHarmony ohpm 环境配置等更多内容，请参考: [下载安装三方库
 
 ### 年月
 
-![](imgs/ym.png)
+![](library/imgs/ym.png)
 
 ### 年月日
 
-![](imgs/ymd.png)
+![](library/imgs/ymd.png)
 
 ### 年月日时
 
 ### 年月日时分
 
-![](imgs/ymdhm.png)
+![](library/imgs/ymdhm.png)
 
 ### 年月日时分秒
 
-![](imgs/ymdhms.png)
+![](library/imgs/ymdhms.png)
 
 ### 时分秒
 
-![](imgs/hms.png)
+![](library/imgs/hms.png)
 
 ### 时分
 
-![](imgs/hm.png)
+![](library/imgs/hm.png)
 
 ### 分秒
 
-![](imgs/ms.png)
+![](library/imgs/ms.png)
 
 ## 🎗️接口说明
 
@@ -315,7 +315,7 @@ struct Index {
 
 我的公众号：程序员吹白  
 
-![](imgs/plat.jpg)  
+![](library/imgs/plat.jpg)
 鸿蒙开发交流QQ群：546723002
 
 ## 🌐 开源协议
