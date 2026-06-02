@@ -94,6 +94,15 @@ DateTimePicker({
     onSelectedCallback: (selected) => {
       this.selected = selected
     },
+
+    // 可选过滤回调：返回false时，从当前列数据集中剔除候选时间
+    filterCallback: (dateTime, column) => {
+      if (column != DateTimeColumn.Day) {
+        return true
+      }
+      let day = new Date(dateTime.year, dateTime.month - 1, dateTime.day).getDay()
+      return day != 0 && day != 6 // 剔除周六、周日
+    },
   
     // 循环模式：Auto，Enable，Disable
     // Auto: 数据项大于3项时可以循环滚动
@@ -106,7 +115,7 @@ DateTimePicker({
 ## ✍️ 使用示例   
 
 ```
-import { DateTimeFormat, DateTimePicker, DateUtil, SuffixMode } from 'date-time-picker'
+import { DateTimeColumn, DateTimeFormat, DateTimePicker, DateUtil, SuffixMode } from 'date-time-picker'
 import { DateTime, DateTimePickerConfig } from 'date-time-picker/src/main/ets/components/DateTimePicker'
 
 @Entry

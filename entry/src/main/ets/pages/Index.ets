@@ -1,5 +1,6 @@
 import {
   DateTime,
+  DateTimeColumn,
   DateTimeFormat,
   DateTimePicker,
   DateTimePickerConfig,
@@ -18,10 +19,20 @@ struct Index {
     selected: '2021-05'
   }
   @State suffixMode: SuffixMode = SuffixMode.Together
+  @State filterWeekends: boolean = false
   @State selected: DateTime = new DateTime(this.config.format, this.config.selected)
 
   onConfigChanged() {
     this.selected = new DateTime(this.config.format, this.config.selected)
+  }
+
+  refreshConfig() {
+    this.config = {
+      format: this.config.format,
+      start: this.config.start,
+      end: this.config.end,
+      selected: this.config.selected
+    }
   }
 
   build() {
@@ -49,6 +60,13 @@ struct Index {
         onSelectedCallback: (selected) => {
           this.selected = selected
         },
+        filterCallback: (dateTime, column) => {
+          if(!this.filterWeekends || column != DateTimeColumn.Day) {
+            return true
+          }
+          let day = new Date(dateTime.year, dateTime.month - 1, dateTime.day).getDay()
+          return day != 0 && day != 6
+        },
         suffixes: {
           year: '年',
           month: '月',
@@ -62,6 +80,7 @@ struct Index {
 
       Blank()
       Text(`当前选择：${this.selected.format()}`)
+      Text(`周末过滤：${this.filterWeekends ? '开启' : '关闭'}`)
       Blank()
 
       Row() {
@@ -174,6 +193,27 @@ struct Index {
           .width(90)
           .onClick(() => {
             this.suffixMode = SuffixMode.Together
+          })
+      }.width('100%')
+      .height(52)
+      .justifyContent(FlexAlign.SpaceAround)
+
+      Row() {
+        Button('过滤周末', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.filterWeekends = true
+            this.refreshConfig()
+          })
+        Button('显示周末', { type: ButtonType.Normal, stateEffect: true })
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .onClick(() => {
+            this.filterWeekends = false
+            this.refreshConfig()
           })
       }.width('100%')
       .height(52)
